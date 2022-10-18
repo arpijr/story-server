@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh source /etc/profile.d/gradle.sh
                 sh './gradlew assemble'
 
             }
