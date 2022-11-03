@@ -1,14 +1,15 @@
 pipeline {
     agent any
+    tools {
+        gradle '7.4.2'
+    }
 
     stages {
 
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'source /etc/profile.d/gradle.sh'
-                sh './gradlew assemble'
-
+                sh 'gradle build'
             }
         }
         stage('Test') {
